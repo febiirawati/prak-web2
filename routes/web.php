@@ -1,6 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TugasController;
+
+// Grouping yang mewajibkan Login (Autentikasi)
+Route::middleware(['auth'])->group(function () {
+    
+    // Semua user yang login bisa lihat & tambah data
+    Route::get('/tugas', [TugasController::class, 'index']);
+    Route::post('/tugas', [TugasController::class, 'store']);
+
+    // Khusus Admin yang bisa hapus (Otorisasi via Middleware)
+    Route::delete('/tugas/{id}', [TugasController::class, 'destroy'])->middleware('admin');
+});
 
 /*
 |--------------------------------------------------------------------------

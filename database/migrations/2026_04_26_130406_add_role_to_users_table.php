@@ -10,11 +10,12 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
-    }
+{
+    Schema::table('users', function (Blueprint $table) {
+        // Menambahkan kolom role untuk membedakan admin dan user
+        $table->string('role')->default('user'); 
+    });
+}
 
     /**
      * Reverse the migrations.
