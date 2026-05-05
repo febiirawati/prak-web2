@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+<<<<<<< HEAD
 use App\Http\Controllers\TugasController;
 
 // Grouping yang mewajibkan Login (Autentikasi)
@@ -27,6 +28,8 @@ Route::middleware(['auth'])->group(function () {
 
 use App\Http\Controllers\PostController;
 Route::get('/posts', [PostController::class, 'index']);
+=======
+>>>>>>> d53821e (first commit)
 
 Route::get('/', function () {
     return view('welcome');

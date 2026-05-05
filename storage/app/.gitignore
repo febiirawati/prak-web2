@@ -1,3 +1,7 @@
 *
+<<<<<<< HEAD
+=======
+!private/
+>>>>>>> d53821e (first commit)
 !public/
 !.gitignore
