@@ -1,36 +1,25 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-<<<<<<< HEAD
-use App\Http\Controllers\TugasController;
-
-// Grouping yang mewajibkan Login (Autentikasi)
-Route::middleware(['auth'])->group(function () {
-    
-    // Semua user yang login bisa lihat & tambah data
-    Route::get('/tugas', [TugasController::class, 'index']);
-    Route::post('/tugas', [TugasController::class, 'store']);
-
-    // Khusus Admin yang bisa hapus (Otorisasi via Middleware)
-    Route::delete('/tugas/{id}', [TugasController::class, 'destroy'])->middleware('admin');
-});
+use App\Http\Controllers\PostController;
+// Jangan lupa import controller Tugas jika sudah ada
+// use App\Http\Controllers\TugasController; 
 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
 */
 
-use App\Http\Controllers\PostController;
-Route::get('/posts', [PostController::class, 'index']);
-=======
->>>>>>> d53821e (first commit)
-
+// 1. Jalur untuk tampilan Biodata (Halaman Utama)
 Route::get('/', function () {
-    return view('welcome');
+    return view('biodata');
 });
+
+// 2. Jalur untuk Posts
+Route::get('/posts', [PostController::class, 'index']);
+
+// 3. Jalur untuk Tugas (Jika kamu sudah sampai tahap ini)
+// Route::get('/tugas', [TugasController::class, 'index']);
+// Route::post('/tugas', [TugasController::class, 'store']);
+// Route::delete('/tugas/{id}', [TugasController::class, 'destroy'])->middleware('admin');
